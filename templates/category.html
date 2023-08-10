@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Category</title>
+</head>
+<style>
+    .container {
+        text-align: center;
+        font-size: 20px;
+        height: 493px;
+    }
+    form{
+        width: 400px;
+        margin: auto;
+    }
+
+</style>
+
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+
+    <div class="container">
+        <form action="{% url 'cateform' %}" method="POST" >
+            {% csrf_token %}
+            <h1>Category Form</h1>
+            <hr>
+            {% if messages %}
+            {% for message in messages %}
+            {{message.label}}
+            {{message.tag}}
+            {{message}}
+            <hr>
+            {% endfor %}
+            {% endif %}
+            <label for="">Enter Cid</label>
+            <input type="text" name="cid" class="form-control" required>
+            <label for="">Enter Cname</label>
+            <input type="text" name="cname" class="form-control" required>
+            <input type="submit" value="Submit" class="btn btn-primary m-2">
+        </form>
+        <a href="{% url 'categorydata' %}"><button class="btn btn-primary">CATEGORYDATA</button></a>
+    </div>
+    
+
+        {% endblock %}
+    </div>
+
+
+</body>
+
+</html>
