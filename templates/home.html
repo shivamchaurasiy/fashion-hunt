@@ -16,12 +16,21 @@
     <link rel="stylesheet" href="/huntapp/static/css/style.css">
     <title>Function Hunt</title>
 </head>
+    <style>
+    body{
+        height: 100vh;
+    }
+    #homeimg{
+        width: 100%;
+        height: 501px;
+    }
+</style>
 <body>
     {% extends 'base.html' %}
 
     {% block content %}
     
-
+<img src="{% static 'images/homeimg.jpg' %}" alt="" id="homeimg">
     {% endblock %}
 </body>
 </html>
